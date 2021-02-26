@@ -5,6 +5,7 @@ const app = express();
 // default options
 app.use(fileUpload());
 
+// form
 app.use("/form", express.static(__dirname + "/../frontend/index.html"));
 
 app.post("/upload", function (req, res) {
