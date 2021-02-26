@@ -5,7 +5,7 @@ const pageLoad = () => {
   const form = document.getElementById("uploadForm");
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(); // ne küldje el a servernek
     console.log("the file upload process is blocked");
   }
 
