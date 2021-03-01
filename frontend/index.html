@@ -3,13 +3,19 @@
     <script src="./script.js"></script>
     <!--Transparent favicon to get rid of favicon error-->
     <!--snippet: type favicon to get code-->
-    <link rel="shortcut icon" href="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=" type="image/gif">
+    <link href="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=" type="image/gif">
   </head>
   <body>
-    <form ref="uploadForm" id="uploadForm" action="http://localhost:8000/upload" method="post" enctype="multipart/form-data">
-      <input type="file" name="sampleFile" />
+    <form ref="uploadForm" id="uploadForm" >
+      <input id="userfile" type="file" name="userfile" multiple/>
       <input type="text" name="username" id="username" />
       <input type="submit" value="Upload!" />
     </form>
   </body>
 </html>
+
+<!--
+form
+ref="uploadForm" action="http://localhost:8000/upload" method="post" enctype="multipart/form-data"
+
+-->

@@ -3,6 +3,7 @@ const fileUpload = require("express-fileupload");
 const app = express();
 
 // default options
+// middleware
 app.use(fileUpload());
 
 // form
@@ -16,16 +17,22 @@ app.post("/upload", function (req, res) {
     return res.status(400).send("No files were uploaded.");
   }
 
-  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  sampleFile = req.files.sampleFile;
-  uploadPath = __dirname + "/upload/" + sampleFile.name;
-
-  // Use the mv() method to place the file somewhere on your server
-  sampleFile.mv(uploadPath, function (err) {
-    if (err) return res.status(500).send(err);
-
-    res.send("File uploaded!");
-  });
+  sampleFile = req.files.userfile; // form's name parameter
+  for (let index = 0; index < sampleFile.length; index++) {
+    
+    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+    uploadPath = __dirname + "/upload/" + sampleFile[index].name;
+  
+    // console.log(req.files.userfile);
+    // Use the mv() method to place the file somewhere on your server
+    sampleFile[index].mv(uploadPath, function (err) {
+      if (err) return res.status(500).send(err);
+  
+    });
+    
+  }
+  res.send("File uploaded!");
+  
 });
 
 // serve static
